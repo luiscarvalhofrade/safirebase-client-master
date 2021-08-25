@@ -20,6 +20,7 @@ export default {
     textAlign: 'center'
   },
   image: {
+    maxWidth: "100px",
     margin: '20px auto 20px auto'
   },
   pageTitle: {
