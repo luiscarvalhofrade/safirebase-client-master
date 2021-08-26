@@ -37,10 +37,10 @@ class Subject extends Component {
         userHandle,
         subjectId
       },
-      user: {
+      /*user: {
         authenticated,
         credentials: { handle }
-      }
+      }*/
     } = this.props;
     return (
       <Card className={classes.card}>
