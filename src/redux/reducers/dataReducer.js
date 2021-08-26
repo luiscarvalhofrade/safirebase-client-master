@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
     case LOADING_DATA:
       return {
         ...state,
-        loading: true
+        loading: true 
       };
     case SET_SCREAMS:
       return {

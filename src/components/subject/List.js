@@ -1,0 +1,79 @@
+import React, { Component } from 'react';
+import withStyles from '@material-ui/core/styles/withStyles';
+import { Link } from 'react-router-dom';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import PropTypes from 'prop-types';
+// MUI Stuff
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+// Redux
+import { connect } from 'react-redux';
+
+const styles = {
+  card: {
+    position: 'relative',
+    display: 'flex',
+    marginBottom: 20
+  },
+  image: {
+    minWidth: 200
+  },
+  content: {
+    padding: 25,
+    objectFit: 'cover'
+  }
+};
+
+class List extends Component {
+  render() {
+    dayjs.extend(relativeTime);
+    const {
+      classes,
+      list: {
+          description,
+          createdAt,
+          userHandle,
+          questionCount
+              },
+      /*user: {
+        authenticated,
+        credentials: { handle }
+      }*/
+    } = this.props;
+    return (
+      <Card className={classes.card}>
+        <CardContent className={classes.content}>
+          <Typography
+            variant="h5"
+            //component={Link}
+            //to={`/materia/${subject}/${listId}`}
+            color="primary"
+          >
+            {description}
+          </Typography>
+          <Typography variant="body2" color="textSecondary">
+            {dayjs(createdAt).fromNow()}
+          </Typography>
+          <Typography variant="body2" color="textSecondary">
+            {userHandle}
+          </Typography>
+          <span> {questionCount} questions</span>
+        </CardContent>
+      </Card>
+    );
+  }
+}
+
+List.propTypes = {
+  list: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
+};
+
+/*const mapStateToProps = (state) => ({
+  user: state.user,
+  //student: state.student
+});*/
+
+export default connect()(withStyles(styles)(List));

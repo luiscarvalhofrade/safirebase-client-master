@@ -18,7 +18,8 @@ import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
 import user from './pages/user';
-
+import subject from './pages/subject';
+import subjectContent from "./pages/subjectContent";
 import axios from 'axios';
 
 const theme = createMuiTheme(themeObject);
@@ -57,6 +58,8 @@ class App extends Component {
                   path="/users/:handle/scream/:screamId"
                   component={user}
                 />
+                <Route exact path="/materias" component={subject}/>
+                <Route exact path="/materia/:subject/:subjectId" component={subjectContent}/>
               </Switch>
             </div>
           </Router>
