@@ -20,6 +20,7 @@ import signup from './pages/signup';
 import user from './pages/user';
 import subject from './pages/subject';
 import subjectContent from "./pages/subjectContent";
+import list from "./pages/list";
 import axios from 'axios';
 
 const theme = createMuiTheme(themeObject);
@@ -60,6 +61,7 @@ class App extends Component {
                 />
                 <Route exact path="/materias" component={subject}/>
                 <Route exact path="/materia/:subject/:subjectId" component={subjectContent}/>
+                <Route exact path="/:subject/:listId" component={list}/>
               </Switch>
             </div>
           </Router>

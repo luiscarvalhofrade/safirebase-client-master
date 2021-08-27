@@ -2,7 +2,9 @@ import {
     LOADING_DATA,
     SET_SUBJECTS,
     SET_SUBJECT,
-    SET_LISTS
+    SET_LISTS,
+    SET_LIST,
+    SET_QUESTIONS
 } from "../types";
 
 import axios from "axios";
@@ -37,6 +39,22 @@ export const getSubject = (subject, subjectId) => (dispatch) => {
         dispatch({
             type: SET_LISTS,
             payload: res.data.lists
+        })
+      })
+      .catch((err) => console.log(err));
+  };
+
+  export const getList = (subject, listId) => (dispatch) => {
+    axios
+      .get(`/${subject}/${listId}`)
+      .then((res) => {
+        dispatch({
+          type: SET_LIST,
+          payload: res.data
+        });
+        dispatch({
+            type: SET_QUESTIONS,
+            payload: res.data.questions
         })
       })
       .catch((err) => console.log(err));

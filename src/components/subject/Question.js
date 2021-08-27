@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
@@ -8,6 +8,10 @@ import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
 // Redux
 import { connect } from 'react-redux';
 
@@ -26,18 +30,18 @@ const styles = {
   }
 };
 
-class List extends Component {
+class Question extends Component {
   render() {
     dayjs.extend(relativeTime);
     const {
       classes,
-      list: {
+      question: {
           description,
-          createdAt,
-          userHandle,
-          subject,
-          listId,
-          questionCount
+          item1,
+          item2,
+          item3,
+          item4,
+          item5,
               },
       /*user: {
         authenticated,
@@ -47,29 +51,26 @@ class List extends Component {
     return (
       <Card className={classes.card}>
         <CardContent className={classes.content}>
-          <Typography
-            variant="h5"
-            component={Link}
-            to={`/${subject}/${listId}`}
-            color="primary"
-          >
+          <Typography variant="body1" >
             {description}
           </Typography>
-          <Typography variant="body2" color="textSecondary">
-            {dayjs(createdAt).fromNow()}
-          </Typography>
-          <Typography variant="body2" color="textSecondary">
-            {userHandle}
-          </Typography>
-          <span> {questionCount} questions</span>
+          <FormControl>
+              <RadioGroup>
+                <FormControlLabel value="item1" control={<Radio />} label={item1}/>
+                <FormControlLabel value="item2" control={<Radio />} label={item2}/>
+                <FormControlLabel value="item3" control={<Radio />} label={item3}/>
+                <FormControlLabel value="item4" control={<Radio />} label={item4}/>
+                <FormControlLabel value="item4" control={<Radio />} label={item5}/>
+              </RadioGroup>
+          </FormControl>
         </CardContent>
       </Card>
     );
   }
 }
 
-List.propTypes = {
-  list: PropTypes.object.isRequired,
+Question.propTypes = {
+  question: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
@@ -78,4 +79,4 @@ List.propTypes = {
   //student: state.student
 });*/
 
-export default connect()(withStyles(styles)(List));
+export default connect()(withStyles(styles)(Question));

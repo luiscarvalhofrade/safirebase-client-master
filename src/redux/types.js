@@ -22,3 +22,5 @@ export const SUBMIT_COMMENT = 'SUBMIT_COMMENT';
 export const SET_SUBJECTS = "SET_SUBJECTS";
 export const SET_SUBJECT = "SET_SUBJECT";
 export const SET_LISTS = "SET_LISTS";
+export const SET_LIST = "SET_LIST";
+export const SET_QUESTIONS = "SET_QUESTIONS";

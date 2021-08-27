@@ -2,6 +2,8 @@ import {
     SET_SUBJECTS,
     SET_SUBJECT,
     SET_LISTS,
+    SET_LIST,
+    SET_QUESTIONS,
     LOADING_DATA
 } from "../types"
 
@@ -10,6 +12,7 @@ const initialState = {
     subject: {},
     lists: [],
     list: {},
+    questions: [],
     loading: false
 };
 
@@ -35,6 +38,16 @@ export default function(state =initialState, action) {
             return {
                 ...state,
                 lists: action.payload
+            }
+        case SET_LIST:
+            return {
+                ...state,
+                list: action.payload
+            }
+        case SET_QUESTIONS:
+            return {
+                ...state,
+                questions: action.payload
             }
         default:
             return state;
