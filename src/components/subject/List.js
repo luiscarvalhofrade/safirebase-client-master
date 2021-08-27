@@ -45,25 +45,27 @@ class List extends Component {
       }*/
     } = this.props;
     return (
-      <Card className={classes.card}>
-        <CardContent className={classes.content}>
-          <Typography
-            variant="h5"
-            component={Link}
-            to={`/${subject}/${listId}`}
-            color="primary"
-          >
-            {description}
-          </Typography>
-          <Typography variant="body2" color="textSecondary">
-            {dayjs(createdAt).fromNow()}
-          </Typography>
-          <Typography variant="body2" color="textSecondary">
-            {userHandle}
-          </Typography>
-          <span> {questionCount} questions</span>
-        </CardContent>
-      </Card>
+      <Link to={`/${subject}/${listId}`}>
+        <Card className={classes.card}>
+          <CardContent className={classes.content}>
+            <Typography
+              variant="h5"
+              component={Link}
+              to={`/${subject}/${listId}`}
+              color="primary"
+            >
+              {description}
+            </Typography>
+            <Typography variant="body2" color="textSecondary">
+              {dayjs(createdAt).fromNow()}
+            </Typography>
+            <Typography variant="body2" color="textSecondary">
+              {userHandle}
+            </Typography>
+            <span> {questionCount} questions</span>
+          </CardContent>
+        </Card>
+      </Link>
     );
   }
 }

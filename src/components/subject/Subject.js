@@ -43,24 +43,21 @@ class Subject extends Component {
       }*/
     } = this.props;
     return (
-      <Card className={classes.card}>
-        <CardContent className={classes.content}>
-          <Typography
-            variant="h5"
-            component={Link}
-            to={`/materia/${subject}/${subjectId}`}
-            color="primary"
-          >
-            {subject}
-          </Typography>
-          <Typography variant="body2" color="textSecondary">
-            {dayjs(createdAt).fromNow()}
-          </Typography>
-          <Typography variant="body2" color="textSecondary">
-            {userHandle}
-          </Typography>
-        </CardContent>
-      </Card>
+      <Link to={`/materia/${subject}/${subjectId}`}>
+        <Card className={classes.card}>
+          <CardContent className={classes.content}>
+            <Typography variant="h5">
+              {subject}
+            </Typography>
+            <Typography variant="body2" color="textSecondary">
+              {dayjs(createdAt).fromNow()}
+            </Typography>
+            <Typography variant="body2" color="textSecondary">
+              {userHandle}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Link>
     );
   }
 }
