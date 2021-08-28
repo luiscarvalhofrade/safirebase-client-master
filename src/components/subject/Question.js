@@ -60,7 +60,7 @@ class Question extends Component {
                 <FormControlLabel value="item2" control={<Radio />} label={item2}/>
                 <FormControlLabel value="item3" control={<Radio />} label={item3}/>
                 <FormControlLabel value="item4" control={<Radio />} label={item4}/>
-                <FormControlLabel value="item4" control={<Radio />} label={item5}/>
+                <FormControlLabel value="item5" control={<Radio />} label={item5}/>
               </RadioGroup>
           </FormControl>
         </CardContent>
