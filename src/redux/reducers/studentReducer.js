@@ -4,10 +4,6 @@ import {
     SET_LISTS,
     SET_LIST,
     SET_QUESTIONS,
-    SET_ANSWERS,
-    SET_GRADE,
-    SET_SCORE,
-    SET_RESULT,
     LOADING_DATA
 } from "../types"
 
@@ -57,36 +53,6 @@ export default function(state =initialState, action) {
                 ...state,
                 questions: action.payload
             }
-        /*case SET_ANSWERS:
-            let index = state.answers.findIndex(
-                (answer) => answer.questionId === action.payload.questionId
-            );
-            if (index === -1) {
-                return {
-                    ...state,
-                    answers: [action.payload, ...state.answers]
-                }
-            } else {
-                state.answers[index] = action.payload
-                return {
-                    ...state,
-                }
-            }
-        case SET_GRADE:
-            return {
-                ...state,
-                results: state.answers
-            }
-        case SET_SCORE:
-            return {
-                ...state,
-                finalScore: action.payload
-            }
-        case SET_RESULT:
-            return {
-                ...state,
-                finalScore: action.payload
-            }*/
         default:
             return state;
     }

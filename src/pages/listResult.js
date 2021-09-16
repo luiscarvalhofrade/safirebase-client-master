@@ -53,4 +53,4 @@ const mapStateToProps = (state) => ({
     user: state.user
 });
 
-export default connect(mapStateToProps, {showResult})(listResult);
+export default connect(mapStateToProps, {showResult})(withStyles(styles)(listResult));
