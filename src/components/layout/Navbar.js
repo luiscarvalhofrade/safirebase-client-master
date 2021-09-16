@@ -35,7 +35,10 @@ class Navbar extends Component {
       this.setState({open: false})
   }
   render() {
-    const { authenticated } = this.props;
+    const { user: {
+      credentials: { imageUrl, handle },
+      authenticated
+    } } = this.props;
     return (
       <AppBar>
         <Toolbar className="nav-container">
@@ -97,9 +100,11 @@ class Navbar extends Component {
                     </Drawer>
                     </div>
               <Notifications />
-              <Button>
-                <Avatar> L </Avatar>
-              </Button>
+              <Link to={`/users/${handle}`}>
+                <Button>
+                  <Avatar alt="Profile image" src={imageUrl}/>
+                </Button>
+              </Link>
             </Fragment>
           ) : (
             <Fragment>
@@ -125,7 +130,7 @@ Navbar.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  authenticated: state.user.authenticated
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Navbar);

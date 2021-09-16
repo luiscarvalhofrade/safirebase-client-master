@@ -3,7 +3,6 @@ import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 
 import Scream from '../components/scream/Scream';
-import Profile from '../components/profile/Profile';
 import ScreamSkeleton from '../util/ScreamSkeleton';
 import PostScream from '../components/scream/PostScream';
 // mui stuff
@@ -40,10 +39,6 @@ class feed extends Component {
             <PostScream />
           </Fab>
         </Grid>
-        <Grid item sm={4} xs={12}>
-          <Profile />
-        </Grid>
-        
       </Grid>
     );
   }
