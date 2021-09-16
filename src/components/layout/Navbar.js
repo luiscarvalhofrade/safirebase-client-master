@@ -12,6 +12,8 @@ import Button from '@material-ui/core/Button';
 // Icons
 import HomeIcon from '@material-ui/icons/Home';
 import SubjectsIcon from '@material-ui/icons/AccountBalance';
+import BallotIcon from '@material-ui/icons/Ballot';
+import BatteryCharging80Icon from '@material-ui/icons/BatteryCharging80';
 
 // testing something
 import Drawer from '@material-ui/core/Drawer';
@@ -75,6 +77,20 @@ class Navbar extends Component {
                               <Link to="/materias">
                                 <MyButton tip="Materias">
                                   <SubjectsIcon /> Materias
+                                </MyButton>
+                              </Link>
+                            </ListItem>
+                            <ListItem key={3}>
+                              <Link to="/forum">
+                                <MyButton tip="Forum">
+                                  <BallotIcon /> Forum
+                                </MyButton>
+                              </Link>
+                            </ListItem>
+                            <ListItem key={4}>
+                              <Link to="/psi">
+                                <MyButton tip="Psi">
+                                  <BatteryCharging80Icon /> Psi
                                 </MyButton>
                               </Link>
                             </ListItem>
