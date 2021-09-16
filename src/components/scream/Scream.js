@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
@@ -68,8 +67,6 @@ class Scream extends Component {
         title={
           <Typography
             variant="h5"
-            component={Link}
-            to={`/users/${userHandle}`}
             color="primary"
           >{userHandle}</Typography>
         }

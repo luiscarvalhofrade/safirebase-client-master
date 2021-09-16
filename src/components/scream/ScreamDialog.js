@@ -6,7 +6,6 @@ import LikeButton from './LikeButton';
 import Comments from './Comments';
 import CommentForm from './CommentForm';
 import dayjs from 'dayjs';
-import { Link } from 'react-router-dom';
 // MUI Stuff
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -110,10 +109,8 @@ class ScreamDialog extends Component {
         title={
           <Typography
             variant="h5"
-            component={Link}
-            to={`/users/${userHandle}`}
             color="primary"
-          >@{userHandle}</Typography>
+          >{userHandle}</Typography>
         }
         subheader={
           <Typography variant="body2" color="textSecondary">
