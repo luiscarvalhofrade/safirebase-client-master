@@ -27,6 +27,7 @@ const styles = {
     },
     cardimage: {
         maxWidth: 358,
+        position: "center"
     }
   };
 
