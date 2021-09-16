@@ -11,8 +11,10 @@ import LikeButton from './LikeButton';
 // MUI Stuff
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import CardHeader from '@material-ui/core/CardHeader';
+import Avatar from '@material-ui/core/Avatar';
+import CardActions from '@material-ui/core/CardActions';
 // Icons
 import ChatIcon from '@material-ui/icons/Chat';
 // Redux
@@ -21,7 +23,6 @@ import { connect } from 'react-redux';
 const styles = {
   card: {
     position: 'relative',
-    display: 'flex',
     marginBottom: 20
   },
   image: {
@@ -59,37 +60,37 @@ class Scream extends Component {
       ) : null;
     return (
       <Card className={classes.card}>
-        <CardMedia
-          image={userImage}
-          title="Profile image"
-          className={classes.image}
-        />
-        <CardContent className={classes.content}>
+        <CardHeader
+          avatar={
+            <Avatar alt="Profile image" src={userImage}/>
+        }
+        title={
           <Typography
             variant="h5"
             component={Link}
             to={`/users/${userHandle}`}
             color="primary"
-          >
-            {userHandle}
-          </Typography>
+          >{userHandle}</Typography>
+        }
+        subheader={dayjs(createdAt).fromNow()}
+        />
+        <CardContent className={classes.content}>
           {deleteButton}
-          <Typography variant="body2" color="textSecondary">
-            {dayjs(createdAt).fromNow()}
-          </Typography>
           <Typography variant="body1">{body}</Typography>
-          <LikeButton screamId={screamId} />
-          <span>{likeCount} Likes</span>
-          <MyButton tip="comments">
-            <ChatIcon color="primary" />
-          </MyButton>
-          <span>{commentCount} comments</span>
-          <ScreamDialog
-            screamId={screamId}
-            userHandle={userHandle}
-            openDialog={this.props.openDialog}
-          />
         </CardContent>
+          <CardActions>
+            <LikeButton screamId={screamId} />
+            <span>{likeCount} Likes</span>
+            <MyButton tip="comments">
+              <ChatIcon color="primary" />
+            </MyButton>
+            <span>{commentCount} comments</span>
+            <ScreamDialog
+              screamId={screamId}
+              userHandle={userHandle}
+              openDialog={this.props.openDialog}
+            />
+          </CardActions>
       </Card>
     );
   }

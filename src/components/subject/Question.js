@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 //import { Link } from 'react-router-dom';
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
 // MUI Stuff
 import Card from '@material-ui/core/Card';
@@ -14,6 +12,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 // Redux
 import { connect } from 'react-redux';
+import { getOneOption } from '../../redux/actions/answerActions';
 
 const styles = {
   card: {
@@ -31,8 +30,21 @@ const styles = {
 };
 
 class Question extends Component {
+  state = {
+    answer: "",
+    questionId: ""
+  }
+  handleChange = (event) => {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+      this.props.getOneOption({
+        answer: event.target.value,
+        questionId: this.props.question.questionId,
+        correctAnswer: this.props.question.answer,
+        result: event.target.value === this.props.question.answer ? true : false
+      });
+  }
   render() {
-    dayjs.extend(relativeTime);
     const {
       classes,
       question: {
@@ -48,6 +60,7 @@ class Question extends Component {
         credentials: { handle }
       }*/
     } = this.props;
+    
     return (
       <Card className={classes.card}>
         <CardContent className={classes.content}>
@@ -55,7 +68,7 @@ class Question extends Component {
             {description}
           </Typography>
           <FormControl>
-              <RadioGroup>
+              <RadioGroup aria-label="answer" name="answer" onChange={this.handleChange}>
                 <FormControlLabel value="item1" control={<Radio />} label={item1}/>
                 <FormControlLabel value="item2" control={<Radio />} label={item2}/>
                 <FormControlLabel value="item3" control={<Radio />} label={item3}/>
@@ -71,12 +84,13 @@ class Question extends Component {
 
 Question.propTypes = {
   question: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired,
+  getOneOption: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
-/*const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
   user: state.user,
   //student: state.student
-});*/
+});
 
-export default connect()(withStyles(styles)(Question));
+export default connect(mapStateToProps, {getOneOption})(withStyles(styles)(Question));

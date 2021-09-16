@@ -24,3 +24,12 @@ export const SET_SUBJECT = "SET_SUBJECT";
 export const SET_LISTS = "SET_LISTS";
 export const SET_LIST = "SET_LIST";
 export const SET_QUESTIONS = "SET_QUESTIONS";
+//export const SET_ANSWERS = "SET_ANSWERS";
+export const SET_GRADE = "SET_GRADE";
+export const SET_SCORE = "SET_SCORE";
+//export const SET_RESULT = "SET_RESULT"
+
+// Answers reducer types
+export const SET_ANSWERS = "SET_ANSWERS";
+export const SET_RESULT = "SET_RESULT";
+export const SHOW_RESULT = "SHOW_RESULT"; 

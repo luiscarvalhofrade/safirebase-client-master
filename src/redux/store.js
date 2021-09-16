@@ -5,6 +5,7 @@ import userReducer from './reducers/userReducer';
 import dataReducer from './reducers/dataReducer';
 import uiReducer from './reducers/uiReducer';
 import studentReducer from "./reducers/studentReducer";
+import answerReducer from "./reducers/answerReducer";
 
 const initialState = {};
 
@@ -14,7 +15,8 @@ const reducers = combineReducers({
   user: userReducer,
   data: dataReducer,
   UI: uiReducer,
-  student: studentReducer
+  student: studentReducer,
+  answer: answerReducer
 });
 
 const composeEnhancers =

@@ -39,7 +39,7 @@ class subjectContent extends Component {
     ) : lists === null ? (
       <p>No lists from this subject</p>
     ) : (
-        lists.map((list) => <List key={list.description} list={list} />)
+        lists.map((list) => <List key={list.listId} list={list} />)
     );
 
     return (

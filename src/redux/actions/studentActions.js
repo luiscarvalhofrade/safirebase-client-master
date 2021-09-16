@@ -4,7 +4,11 @@ import {
     SET_SUBJECT,
     SET_LISTS,
     SET_LIST,
-    SET_QUESTIONS
+    SET_QUESTIONS,
+    SET_ANSWERS,
+    SET_SCORE,
+    SET_RESULT,
+    SET_GRADE
 } from "../types";
 
 import axios from "axios";
@@ -59,3 +63,37 @@ export const getSubject = (subject, subjectId) => (dispatch) => {
       })
       .catch((err) => console.log(err));
   };
+
+  export const getOneAnswer = (answer) => (dispatch) => {
+    dispatch({type: SET_ANSWERS, payload: answer})
+  };
+
+  export const getGrade = (listId, answer) => (dispatch) => {
+    axios
+      .post(`/${listId}/respostas`, answer)
+      .then((res) => {
+        dispatch({
+          type: SET_GRADE
+        });
+      });
+  };
+  export const setScore = (listId) => (dispatch) => {
+    axios
+      .post(`/resultado/${listId}`)
+      .then((res) => {
+        dispatch({
+          type: SET_SCORE,
+          payload: res.data
+        });
+    });
+  }
+  export const getScore = (resultId) => (dispatch) => {
+    axios
+      .get(`/resultadofinal/${resultId}`)
+      .then((res) => {
+        dispatch({
+          type: SET_RESULT,
+          payload: res.data
+        })
+      })
+  }
