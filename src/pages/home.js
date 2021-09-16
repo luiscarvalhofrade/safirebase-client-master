@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import colappost from "../images/colappost.png";
+import pontoscolap from "../images/pontoscolap.png"
 // mui stuff
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
@@ -40,12 +41,11 @@ class home extends Component {
         return (
             <Grid container spacing={16}>
                 <Grid item sm={8} xs={12}>
+                    <Typography variant="h5">
+                        Olá, {handle}         
+                    </Typography>
                     <Card className={classes.card}>
-                        <CardContent className={classes.content}>
-                            <Typography variant="h5">
-                                Olá, {handle}
-                            </Typography>
-                        </CardContent>
+                    <img className={classes.cardimage} alt="pontoscolap" src={pontoscolap}/>
                     </Card>
                     <Card className={classes.card}>
                     <img className={classes.cardimage} alt="colaplogo" src={colappost}/>
