@@ -61,6 +61,7 @@ class Scream extends Component {
     return (
       <Card className={classes.card}>
         <CardHeader
+          className={classes.cardheader}
           avatar={
             <Avatar alt="Profile image" src={userImage}/>
         }
@@ -78,7 +79,7 @@ class Scream extends Component {
           {deleteButton}
           <Typography variant="body1">{body}</Typography>
         </CardContent>
-          <CardActions>
+          <CardActions className={classes.cardaction}>
             <LikeButton screamId={screamId} />
             <span>{likeCount} Likes</span>
             <MyButton tip="comments">
